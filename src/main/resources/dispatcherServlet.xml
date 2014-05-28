@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    	xmlns:context="http://www.springframework.org/schema/context"  
+    	xmlns:mvc="http://www.springframework.org/schema/mvc"   
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    	xmlns:p="http://www.springframework.org/schema/p" 
+    	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans       
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+        http://www.springframework.org/schema/context   
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        <!-- 自动扫描annotation -->
+        <context:component-scan base-package="com.zhangyx"/> 
+        <!-- 启用annotation --> 
+        <mvc:annotation-driven/>
+        <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />  
+  		<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
+  		
+		<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
+		<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**" />
+		<mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
+		<mvc:resources location="/WEB-INF/images/**" mapping="/images/**" />
+		<mvc:resources location="/WEB-INF/content/login.html" mapping="/login.html" />
+		<mvc:resources location="/WEB-INF/content/index.html" mapping="/index.html" />
+		
+  		<!-- 设定返回使用的视图解析方式 -->
+	    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <property name="prefix" value="/"/>
+	        <property name="suffix" value=".jsp"/>
+	    </bean>
+</beans>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/security
+						http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+	<http pattern="/login.html*" security="none"/>
+	<http auto-config="true">
+		<intercept-url pattern="/login.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+		<form-login login-page="/login.html" login-processing-url="/login" 
+		authentication-failure-url="/login.html?error=true" default-target-url="/index.html"/>
+		<logout logout-url="/logout" logout-success-url="/login.html"/>
+		
+		<session-management>
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
+		</session-management>
+		
+		<custom-filter ref="sysFilter" before="FILTER_SECURITY_INTERCEPTOR"/>
+	</http>
+	
+	<!-- 配置过滤器 -->  
+    <beans:bean id="sysFilter" class="com.zhangyx.security.sevice.SysSecurityFilter">  
+        <!-- 用户拥有的权限 -->
+        <beans:property name="authenticationManager" ref="sysAuthenticationManager" />  
+        <!-- 用户是否拥有所请求资源的权限 -->  
+        <beans:property name="accessDecisionManager" ref="sysAccessDecisionManager" />  
+        <!-- 资源与权限对应关系 -->  
+        <beans:property name="securityMetadataSource" ref="sysSecurityMetadataSource" />  
+    </beans:bean>
+    	
+	<!-- 配置认证管理器 -->
+	<authentication-manager alias="sysAuthenticationManager">
+		<authentication-provider user-service-ref="sysUserDetailsService">
+			<password-encoder hash="md5"/> 
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="sysSecurityMetadataSource" class="com.zhangyx.security.sevice.SysSecurityMetadataSource">
+		<beans:constructor-arg name="resourceDao" ref="resourceDao" />
+	</beans:bean>
+	
+</beans:beans>
