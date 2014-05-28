@@ -8,6 +8,17 @@
 	<name>vampire Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<scm>
+		<connection>scm:git:ssh://git@github.com:zyx19910518/vampire.git</connection>
+		<url>scm:git:ssh://git@github.com:zyx19910518/vampire.git</url>
+		<developerConnection>scm:git:ssh://git@github.com:zyx19910518/vampire.git</developerConnection> 
+	</scm>
+	
+	<ciManagement>
+    	<system>Jenkins</system>
+    	<url>http://192.168.133.95:8080/jenkins/</url>
+    </ciManagement>
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>InternalSnapshots</id>
