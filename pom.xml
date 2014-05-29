@@ -9,9 +9,9 @@
 	<url>http://maven.apache.org</url>
 
 	<scm>
-		<connection>scm:git:ssh://git@github.com:zyx19910518/vampire.git</connection>
-		<url>scm:git:ssh://git@github.com:zyx19910518/vampire.git</url>
-		<developerConnection>scm:git:ssh://git@github.com:zyx19910518/vampire.git</developerConnection> 
+		<connection>scm:git:https://github.com/zyx19910518/vampire.git</connection>
+		<url>scm:git:https://github.com/zyx19910518/vampire.git</url>
+		<developerConnection>scm:git:https://github.com/zyx19910518/vampire.git</developerConnection> 
 	</scm>
 	
 	<ciManagement>
