@@ -3,7 +3,7 @@
 	<groupId>com.zhangyx</groupId>
 	<artifactId>vampire</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.2</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>vampire Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -11,7 +11,7 @@
 		<connection>scm:git:https://github.com/zyx19910518/vampire.git</connection>
 		<url>scm:git:https://github.com/zyx19910518/vampire.git</url>
 		<developerConnection>scm:git:https://zyx19910518@github.com/zyx19910518/vampire.git</developerConnection> 
-	  <tag>vampire-0.0.2</tag>
+	  <tag>HEAD</tag>
   </scm>
 	
 	<ciManagement>
